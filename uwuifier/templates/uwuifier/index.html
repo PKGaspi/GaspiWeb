@@ -1,0 +1,25 @@
+{% extends "uwuifier/layout.html" %}
+{% load static %}
+
+{% block script %}
+<script src="{% static 'uwuifier/script.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<h1>vewy exciting fwee to use text uwuifia!</h1>
+<h3 id="smiley">{{smiley}}</h3>
+<form action="{% url "uwuifier:index" %}" method="post" autocomplete="off">
+  {% csrf_token %}
+  <div class="form-group">
+    <textarea autofocus class="form-control" type="textarea" name="t" placeholder="{% if placeholder %}{{placeholder}}{% else %}youw text hewe!{% endif %}">{{ text }}</textarea>
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary btn-lg" type="submit" value="{% if make %}{{make}}{% else %}make uwu!{% endif %}">
+  </div>	
+</form>
+{% if text_uwu %}
+<h2>resauwt:</h2>
+<p id="resault">{{ text_uwu }}</p>
+<button id="copy-btn" class="btn btn-info" onclick="copyToClipboard()">{% if copy %}{{copy}}{% else %}copy to clipboawd!{% endif %}</button>
+{% endif %}
+{% endblock %}
