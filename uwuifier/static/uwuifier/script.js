@@ -76,7 +76,8 @@ function copyToClipboard() {
 	while (face.localeCompare(old_face) == 0) {
 	    face = angry_faces[Math.floor(Math.random() * angry_faces.length)];
 	}
-	copyBtn.className = "btn btn-danger"
+	copyBtn.className = "btn btn-danger";
+	setTimeout(function() {copyBtn.className += " shaking";}, 1);
     }
     copyBtn.innerHTML = text + " " + face;
 }
