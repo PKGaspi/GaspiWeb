@@ -10,9 +10,52 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
+import logging
+
 from pathlib import Path
 
 from decouple import config
+
+# Logger setup
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple':{
+            'format': '[{levelname}] ({asctime}) - {message}\n-------------------------------------------------',
+            'style': '{',
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'debug_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/debug.log',
+            'formatter': 'simple',
+        },
+        'uwu_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/uwus.log',
+            'formatter': 'simple',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'debug_file'],
+        'level': 'DEBUG',
+    },
+    'loggers': {
+        'uwus': {
+            'handlers': ['uwu_file'],
+            'level': 'INFO',
+            'propagate': False,
+        }
+    }
+}
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
