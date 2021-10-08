@@ -48,7 +48,8 @@ function copyToClipboard() {
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
     /* Copy the text inside the text field */
-    navigator.clipboard.writeText(copyText.value);
+    document.execCommand("copy");
+    // navigator.clipboard.writeText(copyText.value); // Preffered, but only works with HTTPS 
     
     /* Change button text */
     const copyBtn = document.getElementById("copy-btn");
