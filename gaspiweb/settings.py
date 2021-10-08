@@ -42,7 +42,7 @@ LOGGING = {
             'formatter': 'simple',
         },
         'uwu_file': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': 'logs/uwus.log',
             'formatter': 'uwu',
