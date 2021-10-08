@@ -41,16 +41,24 @@ var face = "";
 
 function copyToClipboard() {
     /* Find the textarea to copy */
-    const copyText = document.getElementById("result");
-    
+    const copyText = document.getElementById("result").innerHTML;
+
+    // Create a temp textarea to copy the text to.
+    const copyArea = document.createElement("textarea");
+    copyArea.innerHTML = copyText;
+    document.body.appendChild(copyArea);
+
     /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    copyArea.select();
+    copyArea.setSelectionRange(0, 99999); /* For mobile devices */
 
     /* Copy the text inside the text field */
     document.execCommand("copy");
-    // navigator.clipboard.writeText(copyText.value); // Preffered, but only works with HTTPS 
+    // navigator.clipboard.writeText(copyArea.value); // Preffered, but only works with HTTPS 
     
+    // Remove temp textarea.
+    document.body.removeChild(copyArea);
+
     /* Change button text */
     const copyBtn = document.getElementById("copy-btn");
     if (n_copies < texts.length){
