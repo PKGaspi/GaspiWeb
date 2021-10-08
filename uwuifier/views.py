@@ -18,7 +18,7 @@ def index(request):
     if request.method == "POST":
         text = request.POST["t"]
         text_uwu = uwu(text.lower(), flags=flags)
-        logger.info("%s is uwuified:\n%s\n<------>\n%s", request.META["REMOTE_ADDR"], text, text_uwu)
+        logger.info("%s has uwuified:\n%s\n<------>\n%s", request.META["REMOTE_ADDR"], text, text_uwu)
     return render(request, "uwuifier/index.html", {
         "text": text,
         "text_uwu": text_uwu,
