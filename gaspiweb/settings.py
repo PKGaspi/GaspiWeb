@@ -23,7 +23,11 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'simple':{
-            'format': '[{levelname}] ({asctime}) - {message}\n-------------------------------------------------',
+            'format': '[{levelname}] ({asctime} UTC) - {message}',
+            'style': '{',
+        },
+        'uwu':{
+            'format': '[{levelname}] ({asctime} UTC) - {message}\n-------------------------------------------------',
             'style': '{',
         }
     },
@@ -41,7 +45,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': 'logs/uwus.log',
-            'formatter': 'simple',
+            'formatter': 'uwu',
         },
     },
     'root': {
