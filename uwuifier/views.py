@@ -11,7 +11,7 @@ def index(request):
     text, text_uwu = "", ""
     smiley = uwu(".", flags=flags)[2 :]
     placeholder = uwu("your text here!", flags=flags)
-    resault_text = uwu("here is your resault!", flags=flags)
+    result_text = uwu("here is your result!", flags=flags)
     make = uwu("make uwu!!", flags=flags)
     copy = uwu("copy to clipboard!", flags=flags)
     
@@ -24,7 +24,7 @@ def index(request):
         "text_uwu": text_uwu,
         "smiley": smiley,
         "placeholder": placeholder,
-        "resault_text": resault_text,
+        "result_text": result_text,
         "make": make,
         "copy": copy,
     })

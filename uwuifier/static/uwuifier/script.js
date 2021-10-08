@@ -41,7 +41,7 @@ var face = "";
 
 function copyToClipboard() {
     /* Find the textarea to copy */
-    const copyText = document.getElementById("resault");
+    const copyText = document.getElementById("result");
     
     /* Select the text field */
     copyText.select();

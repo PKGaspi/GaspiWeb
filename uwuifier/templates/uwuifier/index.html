@@ -24,12 +24,12 @@
   </form>
   {% if text_uwu %}
   <div class="text-center">
-    <h2>{{ resault_text }}</h2>
+    <h2>{{ result_text }}</h2>
   </div>
 
   <form>
     <div class="form-group">
-      <textarea class="form-control" id="resault" readonly>{{ text_uwu }}</textarea>
+      <textarea class="form-control" id="result" readonly>{{ text_uwu }}</textarea>
     </div>
   </form>
   <button id="copy-btn" class="btn btn-lg btn-block btn-info" onclick="copyToClipboard()">{% if copy %}{{copy}}{% else %}copy to clipboawd!{% endif %}</button>
